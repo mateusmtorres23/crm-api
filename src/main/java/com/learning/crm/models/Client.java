@@ -1,7 +1,7 @@
 package com.learning.crm.models;
 
 import jakarta.persistence.Entity;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
 
 @Entity
 public record Client(
