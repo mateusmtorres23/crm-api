@@ -1,4 +1,11 @@
-FROM ubuntu:latest
-LABEL authors="mmtor"
+FROM maven:eclipse-temurin-17-alpine AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
 
-ENTRYPOINT ["top", "-b"]
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY --from=build /app/target/crm-learningapi.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
