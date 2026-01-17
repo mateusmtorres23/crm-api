@@ -1,4 +1,7 @@
 package com.learning.crm.dto.response;
 
-public record RegisterResponse() {
-}
+public record RegisterResponse(
+
+        String email
+
+) {}
