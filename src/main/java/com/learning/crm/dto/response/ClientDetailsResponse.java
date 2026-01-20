@@ -1,4 +1,16 @@
 package com.learning.crm.dto.response;
 
-public record ClientDetailsResponse() {
-}
+import com.learning.crm.models.ClientStatus;
+
+import java.util.List;
+
+public record ClientDetailsResponse(
+
+        String id,
+        String name,
+        String phone,
+        String email,
+        ClientStatus status,
+        List<NoteInfoResponse> notes
+
+) {}

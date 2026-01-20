@@ -1,4 +1,10 @@
 package com.learning.crm.dto.request;
 
-public class UpdateStatusRequest {
-}
+import com.learning.crm.models.ClientStatus;
+import jakarta.validation.constraints.NotBlank;
+
+public record UpdateStatusRequest (
+
+        ClientStatus newStatus
+
+) {}

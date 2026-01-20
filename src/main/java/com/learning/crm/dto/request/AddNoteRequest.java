@@ -1,4 +1,10 @@
 package com.learning.crm.dto.request;
 
-public record AddNoteRequest() {
-}
+import jakarta.validation.constraints.NotBlank;
+
+
+public record AddNoteRequest (
+
+        @NotBlank String content
+
+) {}

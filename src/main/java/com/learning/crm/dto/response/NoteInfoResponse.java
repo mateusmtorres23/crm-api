@@ -1,4 +1,11 @@
 package com.learning.crm.dto.response;
 
-public record NoteInfoResponse() {
-}
+import java.time.Instant;
+
+public record NoteInfoResponse(
+
+        String id,
+        String content,
+        Instant createdAt
+
+) {}
