@@ -64,8 +64,12 @@ public class AuthService implements UserDetailsService {
                         request.password()
                 )
         );
+        User user = userRepository.findUserByEmail(request.email())
+                .orElseThrow(() -> new IllegalArgumentException("User not found after successful authentication."));
 
-        return null;
+        String token = tokenService.generateToken(user);
+
+        return new LoginResponse(token);
 
     }
 
