@@ -19,12 +19,13 @@ services:
     ports:
         - "8080:8080"
     environment:
+      API_SECURITY_JWT_SECRET_KEY: ${JWT_SECRET_KEY}
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
-      SPRING_JPA_SHOW_SQL: truegi
+      SPRING_JPA_SHOW_SQL: true
 
 volumes:
   pgdata:
