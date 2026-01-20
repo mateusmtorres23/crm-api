@@ -1,4 +1,11 @@
 package com.learning.crm.security;
 
-public record JWTUserData() {
-}
+import lombok.Builder;
+
+@Builder
+public record JWTUserData(
+
+        String userId,
+        String email
+
+) {}
