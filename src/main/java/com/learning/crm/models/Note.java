@@ -1,10 +1,7 @@
 package com.learning.crm.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.Instant;
@@ -12,8 +9,8 @@ import java.time.Instant;
 @Table(name = "notes")
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Note {
 
@@ -25,6 +22,12 @@ public class Note {
     private Instant createdAt;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
+    @Setter(AccessLevel.PACKAGE)
     private Client client;
+
+    public  Note(String id, String content) {
+        this.id = id;
+        this.content = content;
+    }
 
 }
