@@ -1,9 +1,9 @@
 package com.learning.crm.service;
 
-import com.learning.crm.dto.request.LoginRequest;
-import com.learning.crm.dto.request.RegisterRequest;
-import com.learning.crm.dto.response.LoginResponse;
-import com.learning.crm.dto.response.RegisterResponse;
+import com.learning.crm.dto.auth.LoginRequest;
+import com.learning.crm.dto.auth.RegisterRequest;
+import com.learning.crm.dto.auth.LoginResponse;
+import com.learning.crm.dto.auth.RegisterResponse;
 import com.learning.crm.models.User;
 import com.learning.crm.repository.UserRepository;
 import com.learning.crm.security.TokenService;
@@ -11,6 +11,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 
 @Service
 public class AuthService{
@@ -44,7 +46,8 @@ public class AuthService{
         User newUser = new User(
                 null,
                 request.email(),
-                passwordHash
+                passwordHash,
+                Collections.emptyList()
         );
 
         userRepository.save(newUser);
