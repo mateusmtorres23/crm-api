@@ -1,4 +1,4 @@
-package com.learning.crm.dto.request;
+package com.learning.crm.dto.auth;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

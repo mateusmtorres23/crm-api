@@ -1,4 +1,4 @@
-package com.learning.crm.dto.response;
+package com.learning.crm.dto.auth;
 
 public record LoginResponse(
 
