@@ -1,4 +1,4 @@
-package com.learning.crm.dto.request;
+package com.learning.crm.dto.client.request;
 
 import jakarta.validation.constraints.NotBlank;
 

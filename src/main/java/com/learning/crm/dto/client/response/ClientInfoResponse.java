@@ -1,8 +1,8 @@
-package com.learning.crm.dto.response;
+package com.learning.crm.dto.client.response;
 
 import com.learning.crm.models.ClientStatus;
 
-public record ClientResponse(
+public record ClientInfoResponse(
 
         String id,
         String name,

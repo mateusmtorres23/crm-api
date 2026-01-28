@@ -1,4 +1,4 @@
-package com.learning.crm.dto.response;
+package com.learning.crm.dto.client.response;
 
 import com.learning.crm.models.ClientStatus;
 
