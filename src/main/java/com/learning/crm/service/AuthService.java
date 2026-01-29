@@ -46,8 +46,7 @@ public class AuthService{
         User newUser = new User(
                 null,
                 request.email(),
-                passwordHash,
-                Collections.emptyList()
+                passwordHash
         );
 
         userRepository.save(newUser);
