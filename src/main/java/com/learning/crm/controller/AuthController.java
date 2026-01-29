@@ -1,9 +1,11 @@
 package com.learning.crm.controller;
 
-import com.learning.crm.dto.request.LoginRequest;
-import com.learning.crm.dto.request.RegisterRequest;
-import com.learning.crm.dto.response.LoginResponse;
-import com.learning.crm.dto.response.RegisterResponse;
+import com.learning.crm.dto.auth.LoginRequest;
+import com.learning.crm.dto.auth.RegisterRequest;
+import com.learning.crm.dto.auth.LoginResponse;
+import com.learning.crm.dto.auth.RegisterResponse;
+import com.learning.crm.dto.client.response.CreateClientResponse;
+import com.learning.crm.models.User;
 import com.learning.crm.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,27 +25,17 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody RegisterRequest request) {
+    public ResponseEntity<RegisterResponse> registerUser(@RequestBody RegisterRequest request) {
+        RegisterResponse newUser = authService.userRegister(request);
 
-        try {
-            authService.userRegister(request);
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body("User registered successfully");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body(e.getMessage());
-        }
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(newUser);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+        LoginResponse response = authService.userLogin(request);
 
-        try{
-            LoginResponse response = authService.userLogin(request);
-            return ResponseEntity.ok(response.token());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body("Invalid email or password");
-        }
+        return ResponseEntity.ok().body((response));
     }
 }
