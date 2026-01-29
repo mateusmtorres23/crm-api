@@ -8,9 +8,9 @@ public record CreateClientRequest(
         @NotBlank
         String name,
         @NotBlank
-        String phone,
-        @NotBlank
         @Email
-        String email
+        String email,
+        @NotBlank
+        String phone
 
 ) {}

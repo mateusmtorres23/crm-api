@@ -8,6 +8,7 @@ public record ClientInfoResponse(
         String name,
         String phone,
         String email,
-        ClientStatus status
+        ClientStatus status,
+        int numberOfNotes
 
 ) {}
